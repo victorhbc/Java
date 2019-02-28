@@ -88,19 +88,74 @@ public class Data{
         int dia, mes, ano;
         Data ret = null;
         try {
-            dia = this.dia++;
+            dia = ++this.dia;
             mes = this.mes;
             ano = this.ano;
-            ret = new Data(dia, mes, ano); 
+            if (valida(dia, mes, ano)){
+                ret = new Data(dia, mes, ano); 
+            }else{
+                dia = 1;
+                mes++;
+                if (valida(dia, mes, ano)) {
+                    ret = new Data(dia, mes, ano);
+                } else {
+                    mes = 1;
+                    ano++;
+                    ret = new Data(dia, mes, ano);
+                }
+                ret = new Data(dia, mes, ano); 
+            }
+            
         } catch (Exception e) {
           
         }
         return ret;
     }
 
-    // public Data diaAnterior(){
-    //     int dia, mes, ano;
-    //     dia = this.dia++;
-    //     return new Data (dia, mes, ano);
-    // }
+    public Data diaAnterior(){
+        int dia, mes, ano;
+        Data ret = null;
+        try {
+            dia = --this.dia;
+            mes = this.mes;
+            ano = this.ano;
+            if (valida(dia, mes, ano)){
+                ret = new Data(dia, mes, ano); 
+            }else{
+                mes--;
+                if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 11){
+                    dia = 31;
+                    if (valida(dia, mes, ano)) {
+                        ret = new Data(dia, mes, ano);
+                    }else{
+                        dia = 1;
+                        mes = 12;
+                        ano--;
+                        ret = new Data(dia, mes, ano);
+                    }
+                }
+                if (mes == 4 || mes == 6 || mes == 9 || mes == 12){
+                    dia = 30;
+                    if (valida(dia, mes, ano)) {
+                        ret = new Data(dia, mes, ano);
+                    }
+                }
+                if (mes == 2) {
+                    if(bissexto(ano)){
+                        dia = 29;
+                        ret = new Data(dia, mes, ano);
+                    }else{
+                        dia = 28;
+                        ret = new Data(dia, mes, ano);
+                    }
+                }
+
+                ret = new Data(dia, mes, ano); 
+            }
+            
+        } catch (Exception e) {
+          
+        }
+        return ret;
+    }
 }

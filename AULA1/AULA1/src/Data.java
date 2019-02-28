@@ -1,8 +1,4 @@
 public class Data{
-
-    /**
-	 *
-	 */
 	
 	private static final String DATA_INVALIDA = "Data invalida";
 	private int dia, mes, ano;

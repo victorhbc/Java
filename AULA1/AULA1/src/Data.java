@@ -84,13 +84,23 @@ public class Data{
         this.ano = ano;
     }
 
-    public Data diaSeguinte(Data recebida){
+    public Data diaSeguinte(){
         int dia, mes, ano;
-        return new Data (dia, mes, ano);
+        Data ret = null;
+        try {
+            dia = this.dia++;
+            mes = this.mes;
+            ano = this.ano;
+            ret = new Data(dia, mes, ano); 
+        } catch (Exception e) {
+          
+        }
+        return ret;
     }
 
-    public Data diaAnterior(Data recebida){
-        int dia, mes, ano;
-        return new Data (dia, mes, ano);
-    }
+    // public Data diaAnterior(){
+    //     int dia, mes, ano;
+    //     dia = this.dia++;
+    //     return new Data (dia, mes, ano);
+    // }
 }

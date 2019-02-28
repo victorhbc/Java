@@ -1,6 +1,11 @@
 public class Data{
 
-    private int dia, mes, ano;
+    /**
+	 *
+	 */
+	
+	private static final String DATA_INVALIDA = "Data invalida";
+	private int dia, mes, ano;
 
     boolean bissexto(int a){
         if(a % 400 == 0) return true;
@@ -46,7 +51,10 @@ public class Data{
     /**
      * @param dia the dia to set
      */
-    public void setDia(int dia) {
+    public void setDia(int dia) throws Exception{
+        if (!valida(dia, mes, ano)) {
+            throw new Exception(DATA_INVALIDA);
+        }
         this.dia = dia;
     }
     /**
@@ -58,7 +66,10 @@ public class Data{
     /**
      * @param mes the mes to set
      */
-    public void setMes(int mes) {
+    public void setMes(int mes) throws Exception{
+        if (!valida(dia, mes, ano)) {
+            throw new Exception(DATA_INVALIDA);
+        }
         this.mes = mes;
     }
     /**
@@ -70,7 +81,10 @@ public class Data{
     /**
      * @param ano the ano to set
      */
-    public void setAno(int ano) {
+    public void setAno(int ano) throws Exception{
+        if (!valida(dia, mes, ano)) {
+            throw new Exception(DATA_INVALIDA);
+        }
         this.ano = ano;
     }
 

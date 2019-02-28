@@ -84,4 +84,13 @@ public class Data{
         this.ano = ano;
     }
 
+    public Data diaSeguinte(Data recebida){
+        int dia, mes, ano;
+        return new Data (dia, mes, ano);
+    }
+
+    public Data diaAnterior(Data recebida){
+        int dia, mes, ano;
+        return new Data (dia, mes, ano);
+    }
 }

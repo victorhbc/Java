@@ -42,13 +42,13 @@ public class Data{
      * @return the dia
      */
     public int getDia() {
-        return dia;
+        return this.dia;
     }
     /**
      * @param dia the dia to set
      */
     public void setDia(int dia) throws Exception{
-        if (!valida(dia, mes, ano)) {
+        if (!valida(dia, this.mes, this.ano)) {
             throw new Exception(DATA_INVALIDA);
         }
         this.dia = dia;
@@ -57,13 +57,13 @@ public class Data{
      * @return the mes
      */
     public int getMes() {
-        return mes;
+        return this.mes;
     }
     /**
      * @param mes the mes to set
      */
     public void setMes(int mes) throws Exception{
-        if (!valida(dia, mes, ano)) {
+        if (!valida(this.dia, mes, this.ano)) {
             throw new Exception(DATA_INVALIDA);
         }
         this.mes = mes;
@@ -72,13 +72,13 @@ public class Data{
      * @return the ano
      */
     public int getAno() {
-        return ano;
+        return this.ano;
     }
     /**
      * @param ano the ano to set
      */
     public void setAno(int ano) throws Exception{
-        if (!valida(dia, mes, ano)) {
+        if (!valida(this.dia, this.mes, ano)) {
             throw new Exception(DATA_INVALIDA);
         }
         this.ano = ano;
@@ -88,7 +88,7 @@ public class Data{
         int dia, mes, ano;
         Data ret = null;
         try {
-            dia = ++this.dia;
+            dia = this.dia + 1;
             mes = this.mes;
             ano = this.ano;
             if (valida(dia, mes, ano)){
@@ -103,11 +103,28 @@ public class Data{
                     ano++;
                     ret = new Data(dia, mes, ano);
                 }
-                ret = new Data(dia, mes, ano); 
             }
             
         } catch (Exception e) {
-          
+             
+        }
+        return ret;
+    }
+    public Data diaSeguinteMaligno(){
+        Data ret = null;
+
+        try {
+            if (valida(this.dia + 1, this.mes, this.ano)){
+                ret = new Data(this.dia + 1, this.mes, this.ano);
+            }else{
+                if(valida(1, this.mes + 1, this.ano)){
+                    ret = new Data(1, this.mes + 1, this.ano);
+                }else{
+                    ret = new Data(1, 1, this.ano + 1);
+                }
+            }
+        } catch (Exception e) {
+             
         }
         return ret;
     }
@@ -116,7 +133,7 @@ public class Data{
         int dia, mes, ano;
         Data ret = null;
         try {
-            dia = --this.dia;
+            dia = this.dia - 1;
             mes = this.mes;
             ano = this.ano;
             if (valida(dia, mes, ano)){

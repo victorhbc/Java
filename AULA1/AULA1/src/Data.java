@@ -1,15 +1,16 @@
+
 public class Data{
 	
 	private static final String DATA_INVALIDA = "Data invalida";
 	private int dia, mes, ano;
 
-    boolean bissexto(int a){
+    private static boolean bissexto(int a){
         if(a % 400 == 0) return true;
         if(a % 4 == 0 && a % 100 != 0) return true;
         return false;
     } 
 
-    boolean valida(int d, int m, int a){
+    private static boolean valida(int d, int m, int a){
         if (d < 1 || d > 31) return false;
         if (m < 1 || m > 12) return false;
         if ((m == 4 || m == 6 || m == 9 || m == 11) && d > 30) return false;
@@ -34,6 +35,7 @@ public class Data{
     //     ano = a;
     // }
 
+    /************ MÉTODO OBRIGATÓRIO ************/
     public String toString(){
         return (dia < 10 ? "0" : "") + dia + "/" + (mes < 10 ? "0" : "") + mes + "/" + ano + (ano < 0 ? "AC" : "");
     }
@@ -129,7 +131,7 @@ public class Data{
         return ret;
     }
 
-    public Data diaAnterior(){
+    public Data diaAnterior(){//solução conservadora
         int dia, mes, ano;
         Data ret = null;
         try {
@@ -175,4 +177,49 @@ public class Data{
         }
         return ret;
     }
+    public Data diaAnteriorMaligno(){//solucao ousada
+        Data ret = null;
+        try {
+            ret = new Data (this.dia - 1, this.mes, this.ano);
+        } catch (Exception a) {
+            try {
+                ret = new Data (31, this.mes - 1, this.ano);
+            } catch (Exception b) {
+                try {
+                    ret = new Data(30, this.mes - 1, this.ano);
+                } catch (Exception c) {
+                    try {
+                        ret = new Data(29, this.mes - 1, this.ano);
+                    } catch (Exception d) {
+                        try {
+                            ret = new Data(28, this.mes - 1, this.ano);
+                        } catch (Exception e) {
+                            try {
+                                ret = new Data(1, 12, this.ano - 1);
+                            } catch (Exception f) {
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return ret;
+    }
+
+    /*******fazendo um equals na mão QUE É OBRIGATÓTRIO FAZER********/
+
+    public boolean equals(Object obj){
+        if (this == obj) //comparando se o endereço de memória é igual
+            return true;
+        if (obj == null)
+            return false;
+        if (this.getClass() != obj.getClass())
+            return false;
+        // if (this.dia != ((Data)obj).dia || this.mes != ((Data)obj).mes || this.ano != ((Data)obj).ano)//tipo entre parentes é cast //nesse caso é só uma convenção pois não da pra fazer converção de classe sem método pra isso
+        //     return false;
+        Data data = (Data)obj;
+        if (this.dia != data.dia || this.mes != data.mes || this.ano != data.ano)//tipo entre parentes é cast //nesse caso é só uma convenção pois não da pra fazer converção de classe sem método pra isso
+        return false;
+        return true;
+    }  
 }

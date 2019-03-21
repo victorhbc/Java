@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class Programa{
 
     public static void main(String[] args) {
@@ -25,19 +26,25 @@ public class Programa{
             /*System.out.println(inicioAulas1s2019.toString());//pode por ou não o toString()*/
             Data dSeg = inicioAulas1s2019.diaSeguinte();
             System.out.println(dSeg);
-            Data dAnt = inicioAulas1s2019.diaAnterior();
-            System.out.println(dAnt);
-            if (dSeg.equals(dAnt)) {
+            Data outro = new Data(1, 3, 2016);
+            System.out.println(outro);
+            if (dSeg.equals(outro)) {
                 System.out.println("igual");
             }else{
                 System.out.println("diferentes");
+            }
+            
+            ArrayList<Data> arr = new ArrayList<Data>();
+            arr.add(dSeg);
+            if (arr.contains(outro)){ 
+                System.out.println("contem");
             }
 
         } catch (Exception erro) {
             System.err.println(erro.getMessage());
             //System.err.println("Sua mensagem de erro"); TAMBEM PODE FAZER ASSIM
         }
-        
+
     }
 
 }

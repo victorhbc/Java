@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+// import java.util.ArrayList;
 public class Programa{
 
     public static void main(String[] args) {
@@ -34,11 +34,11 @@ public class Programa{
                 System.out.println("diferentes");
             }
             
-            ArrayList<Data> arr = new ArrayList<Data>();
-            arr.add(dSeg);
-            if (arr.contains(outro)){ 
-                System.out.println("contem");
-            }
+            // ArrayList<Data> arr = new ArrayList<Data>();
+            // arr.add(dSeg);
+            // if (arr.contains(outro)){ 
+            //     System.out.println("contem");
+            // }
 
         } catch (Exception erro) {
             System.err.println(erro.getMessage());

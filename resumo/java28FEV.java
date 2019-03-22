@@ -1,16 +1,16 @@
 TIPOS DE VARIÁVEIS                                      CLASSE CORRESPONDENTE (CLASSES WRAPPERS(embrulhadoras))
     INTEIROS
-        byte: menor                                         Byte
-        short: pequeno                                      Short
-        int: aceitável                                      Integer
-        long: gigante                                       Long
+        byte: menor /* byte ret = (byte)12 */  /*8 bits*/                       Byte  
+        short: pequeno/* short ret = (short)12 *//*16 bits*/                    Short
+        int: aceitável /*32 bits*/                                              Integer
+        long: gigante /*64 bits*/                                               Long
     REAIS
-        float: tamanho equivalente ao int                   Float
-        double: tamanho equivalente ao long                 Double
+        float: tamanho equivalente ao int/*32 bits*//*float f = (float)0.0*/    Float
+        double: tamanho equivalente ao long/*64 bits*/                          Double
     VERIFICAÇÃO
-        boolean                                             boolean
+        boolean                                                                 Boolean
     CARACTÉRES
-         char                                                Character
+         char                                                                   Character
 
         String não é classe wrapper pq não existe a variável string
 
@@ -69,9 +69,23 @@ COMPARAR VALORES DE TIPOS PRIMITIVOS: ==
 
 O THIS NUNCA EH NULO PQ SE VOCE ENTRA NO METODO SIGNIFICA QUE ELE NAO E NULO
 
-MÉTODOS A CONSTRUIR NA PROVA OBRIGATÓRIOS: toString, equals
+MÉTODOS A CONSTRUIR NA PROVA OBRIGATÓRIOS: toString, equals, hashCode
 
 COMO SABER SE POE OU NÃO O STATIC NA FUNÇÃO:
     ANALISE SE A FUNÇÃO USA COISAS ALÉM DOS PARAMETROS (EX: THIS)
     SE USAR NÃO POE STATIC 
     SE USAR COLOCA
+
+
+
+HASHCODE 
+    UM DOS 6 MÉTODOS OBRIGATÓRIOS - FACILITA AS BUSCAS
+    SAO NUMEROS NATURAIS
+
+CONSTANTES
+    QUANDO VOCÊ DECLARA UMA CONSTANTE VALE A PENA COLOCAR STATIC POIS CADA VEZ QUE VOCÊ USA ELA , COM O FINAL SÓ FAZ CONSULTA DE VALOR
+    SE NÃO COLOCAR ELE DECLARA A CONSTANTE TODA VEZ
+    PUBLIC SE VC FOR PEGAR O VALOR NA MAIN 
+    PRIVATE SE SÓ FOR USAR ESSA CONSTANTE NA CLASSE QUE ESTÁ DECLARANDO ELA 
+    SEMPRE COLOCAR O STATIC
+    EX: public static final String hey = "hey ohhhh";

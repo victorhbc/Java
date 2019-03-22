@@ -1,4 +1,3 @@
-
 public class Data{
 	
 	private static final String DATA_INVALIDA = "Data invalida";
@@ -15,25 +14,18 @@ public class Data{
         if (m < 1 || m > 12) return false;
         if ((m == 4 || m == 6 || m == 9 || m == 11) && d > 30) return false;
         if (d > 29 && m == 2) return false;
-        if (d > 28 && m ==2 && !bissexto(a))return false;
+        if (d > 28 && m ==2 && !Data.bissexto(a))return false;
         return true;
     }
 
     /***************JEITO CERTO***************/
     Data(int dia, int mes, int ano) throws Exception { //sempre declarar o throws Exception para usar o throw new Exception
-        if(!valida(dia, mes, ano))
+        if(!Data.valida(dia, mes, ano))
             throw new Exception("Data inválida");
         this.dia = dia;
         this.mes = mes;
         this.ano = ano;
     }
-
-    /*************** outro modo de fazer o construtor que tambem funciona ***************/
-    // Data(int d, int m, int a){
-    //     dia = d;
-    //     mes = m;
-    //     ano = a;
-    // }
 
     /************ MÉTODO OBRIGATÓRIO ************/
     public String toString(){
@@ -50,7 +42,7 @@ public class Data{
      * @param dia the dia to set
      */
     public void setDia(int dia) throws Exception{
-        if (!valida(dia, this.mes, this.ano)) {
+        if (!Data.valida(dia, this.mes, this.ano)) {
             throw new Exception(DATA_INVALIDA);
         }
         this.dia = dia;
@@ -65,7 +57,7 @@ public class Data{
      * @param mes the mes to set
      */
     public void setMes(int mes) throws Exception{
-        if (!valida(this.dia, mes, this.ano)) {
+        if (!Data.valida(this.dia, mes, this.ano)) {
             throw new Exception(DATA_INVALIDA);
         }
         this.mes = mes;
@@ -80,7 +72,7 @@ public class Data{
      * @param ano the ano to set
      */
     public void setAno(int ano) throws Exception{
-        if (!valida(this.dia, this.mes, ano)) {
+        if (!Data.valida(this.dia, this.mes, ano)) {
             throw new Exception(DATA_INVALIDA);
         }
         this.ano = ano;
@@ -219,7 +211,20 @@ public class Data{
         //     return false;
         Data data = (Data)obj;
         if (this.dia != data.dia || this.mes != data.mes || this.ano != data.ano)//tipo entre parentes é cast //nesse caso é só uma convenção pois não da pra fazer converção de classe sem método pra isso
-        return false;
+            return false;
         return true;
     }  
+
+    public int hashCode(){//se o atributo for constante ou nulo 
+        int ret = 1;//escolher um numero (POSITIVO) menos 0
+        ret = ret * 2 + new Integer(this.dia).hashCode(); // o 2 pode ser um numero primo qualquer a partir do 2            
+        ret = ret * 2 + new Integer(this.mes).hashCode();
+        ret = ret * 2 + new Integer(this.ano).hashCode();
+        //objetos de classes wrappers só chama o hashCode direto, exemplo: se fosse uma String(nome) ficaria ret = ret * 2 + nome.hashCode()
+        //fazer antes de criar hashCode de objetos que o construtor deixa ser nulo um if null
+
+        return ret < 0 ? -ret : ret;
+    }
+    
+
 }

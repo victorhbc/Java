@@ -89,3 +89,30 @@ CONSTANTES
     PRIVATE SE SÓ FOR USAR ESSA CONSTANTE NA CLASSE QUE ESTÁ DECLARANDO ELA 
     SEMPRE COLOCAR O STATIC
     EX: public static final String hey = "hey ohhhh";
+
+
+3 SITRUAÇÕES QUE NÃO USA MÉTODOS OBRIGATÓRIOS:
+    Classes sem atributos (ex: classes que acessam banco de dados, a main) (só com métodos só que sem atributos)
+    Classe tiver só atributos estáticos (ex: a classe teclado do Maligno)
+    Quando uma classe herda de uma outra e não tem atributos adicionais aqueles que herdou//falta aprender herança
+
+Construtores
+    Padrão - construtor sem PARAMETROS
+    Cópia - um parametro: recebe um objeto da própria classe
+    Construtor normal é o que recebe parametros igual na data
+
+CLONE E CONSTRUTOR DE CÓPIA
+    só faz quando tem métodos que alteram artibutos ex: setters, adiante, atrase // Fazer esses métodos quando classe tiver métodos além dos construtores que alteram atributos do this
+    //quando esses dois métodos não forem obrigatórios eles serão proibidos
+
+NA PROVA SÓ FAZER GETTERS E SETTERS SE ESTIVER NO ENUNCIADO PQ NÃO SÃO OBRIGATÓRIOS
+
+SÓ PODE COLOCAR PRINTS E DIGITAÇÕES NA MAIN OU EM CLASSES FEITAS ESPECIFICAMENTE PARA PRINTAR OU DIGITAR
+
+QUANDO VOCÊ CRIA OBJETOS ELES SÃO NULOS POREM SE ESTIVER EM UM MÉTODO QUE ELE FOR RETORNO E ELE FOR EXEÇÃO PRECISA COLOCAR ANTES Objeto nome = null
+
+compareTo(): 1 dos métodos obrigatórios porém só é obrigatório raramente , não colóca em classses de estruturas de dados
+    COMPARA THIS COM O PARâMETRO RECEBIDO
+        SE THIS VEM ANTES DO PARAMETRO (THIS É MENOR QUE O PARAMETRO) RETORNA UM INTEIRPO NEGATIVO
+        SE THIS VEM ANTES DO PARAMETRO (THIS É MAIOR QUE O PARAMETRO) RETORNA UM INTEIRPO POSITIVO
+        SE THIS VEM ANTES DO PARAMETRO (THIS É IGUAL QUE O PARAMETRO) RETORNA 0   na resposta

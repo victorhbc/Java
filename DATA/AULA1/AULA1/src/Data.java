@@ -1,4 +1,4 @@
-public class Data{
+public class Data implements Cloneable/*Quando tem clone*/, Comparable<Data>/*Quand tem compareTo*/{
 	
 	private static final String DATA_INVALIDA = "Data invalida";
 	private int dia, mes, ano;
@@ -120,7 +120,7 @@ public class Data{
         } catch (Exception e) {
              
         }
-        return ret;
+        return ret; 
     }
 
     public Data diaAnterior(){//solução conservadora
@@ -226,5 +226,45 @@ public class Data{
         return ret < 0 ? -ret : ret;
     }
     
+    public Data(Data modelo) throws Exception{
+        if (modelo == null)
+            throw new Exception("Modelo Ausente");
+        
+        this.dia = modelo.dia;
+        this.mes = modelo.mes;
+        this.ano = modelo.ano;
+         
+    }
+
+    public Object clone() {
+        Data ret = null;
+        try {
+            ret = new Data(this);
+        } catch (Exception e) {}
+        return ret;
+    }
+
+    public int compareTo(Data data){
+        if (this.ano < data.ano) {
+            return -1;
+        }
+        if (this.ano > data.ano) {
+            return 1;
+        }
+        if (this.mes < this.mes) {
+            return -1;
+        }
+        if (this.mes > this.mes) {
+            return 1;
+        }
+        if (this.dia < this.dia) {
+            return -1;
+        }
+        if (this.dia > this.dia) {
+            return 1;
+        }
+        return 0;
+    } 
+
 
 }

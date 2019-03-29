@@ -1,4 +1,4 @@
-// import java.util.ArrayList;
+import java.util.ArrayList;
 public class Programa{
 
     public static void main(String[] args) {
@@ -8,6 +8,8 @@ public class Programa{
             System.out.println(inicioAulas1s2019);
             inicioAulas1s2019.setDia(80);
             System.out.println(inicioAulas1s2019);
+            ArrayList<Data> arr = new ArrayList<Data>();
+            arr.add(new Data(inicioAulas1s2019));
             
         } catch (Exception erro) {
             System.err.println(erro.getMessage());

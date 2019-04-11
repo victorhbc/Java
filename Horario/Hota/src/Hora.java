@@ -10,7 +10,7 @@ public class Hora{
         if (m > 59 || m < 0) {
             return false;
         }
-        if (s > 60 || s < 0) {
+        if (s > 59 || s < 0) {
             return false;
         }
         return true;
@@ -76,12 +76,12 @@ public class Hora{
             if (qtdSegundos < 0) {
                 throw new Exception(HORA_INVALIDA);
             }
-            if (segSeg(qtdSegundos + this.segundos)) {
+            if (Hora.valida(this.horas, this.minutos,qtdSegundos + this.segundos)) {
                 h = new Hora(this.horas, this.minutos, this.segundos + qtdSegundos);
             }else{
                 int modSeg = (qtdSegundos + this.segundos) % 60; //quantidade de segundos
                 int xSeg = (qtdSegundos + this.segundos) / 60; //quantidade de minutos a ser acrescida
-                if (minMin(this.minutos + xSeg)) {
+                if (Hora.valida(this.horas, this.minutos + xSeg, modSeg)) {
                     h = new Hora(this.horas, this.minutos + xSeg, modSeg);    
                 }else{
                     int sumMin = this.minutos + xSeg;

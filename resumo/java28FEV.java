@@ -103,7 +103,10 @@ Construtores
 
 CLONE E CONSTRUTOR DE CÓPIA
     só faz quando tem métodos que alteram artibutos ex: setters, adiante, atrase // Fazer esses métodos quando classe tiver métodos além dos construtores que alteram atributos do this
-    //quando esses dois métodos não forem obrigatórios eles serão proibidos
+    //quando esses dois métodos não forem obrigatórios eles serão proibidos 
+    no clone precisa de casting, ex: 
+        // ControladorDeErros c7 = new ControladorDeErros(6);
+        // ControladorDeErros c8 = new ControladorDeErros(c7);
 
 NA PROVA SÓ FAZER GETTERS E SETTERS SE ESTIVER NO ENUNCIADO PQ NÃO SÃO OBRIGATÓRIOS
 
@@ -115,4 +118,35 @@ compareTo(): 1 dos métodos obrigatórios porém só é obrigatório raramente ,
     COMPARA THIS COM O PARâMETRO RECEBIDO
         SE THIS VEM ANTES DO PARAMETRO (THIS É MENOR QUE O PARAMETRO) RETORNA UM INTEIRPO NEGATIVO
         SE THIS VEM ANTES DO PARAMETRO (THIS É MAIOR QUE O PARAMETRO) RETORNA UM INTEIRPO POSITIVO
-        SE THIS VEM ANTES DO PARAMETRO (THIS É IGUAL QUE O PARAMETRO) RETORNA 0   na resposta
+        SE THIS VEM ANTES DO PARAMETRO (THIS É IGUAL QUE O PARAMETRO) RETORNA 0  
+
+
+
+DECLARAÇÃO DE VETORES:
+    int[] vet1 = new int[5]; 
+    int[] vet2 = {3,5,7}; // vet[3]
+
+MATRIZ
+    int[][] mat1 = new int [2][3];
+    int[][] mat2 = {{2,3},{4,7}};
+
+QUANTIDADE DE LINHAS
+    vet1.length
+    mat1.length
+
+QUANTIDADE DE COLUNAS DA MATRIZ
+    mat1[0].length //esse 0 é por causa que ele mede quantas colunas tem em uma linha já existente, é bom usar o 0 pq toda matriz tem a linha 0
+
+FOREACH VALE A PENA USAR SÓ PRA PERCORRER O VETOR PORÉM NÃO GUARDA A POSIÇÃO DO ÍNDICE
+    public int hashCode ()
+    {
+        int ret = 1;
+        for(char c : this.texto){//sintaxe que serve apenas caso o vetor esteja cheio
+        ret = ret * 2 + new Character(c).hashCode();
+        }
+        return ret;
+        // calcular e retornar o hashcode de this
+    }
+
+CLASSES QUE NÃO ALTERAM ATRIBUTOS NÃO POSSUEM CLONE E CONSTRUTOR DE CÓPIAS
+    Ex: String e classes wrappers

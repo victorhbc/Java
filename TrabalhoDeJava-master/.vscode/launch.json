@@ -1,0 +1,46 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TesterControladorDeErros",
+            "request": "launch",
+            "mainClass": "TesterControladorDeErros",
+            "projectName": "Joguinho"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Forca",
+            "request": "launch",
+            "mainClass": "Forca",
+            "projectName": "Joguinho"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TesterBancoDePalavras",
+            "request": "launch",
+            "mainClass": "TesterBancoDePalavras",
+            "projectName": "Joguinho"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TesterControladorDeLetrasJaDigitadas",
+            "request": "launch",
+            "mainClass": "TesterControladorDeLetrasJaDigitadas",
+            "projectName": "Joguinho"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TesterPalavra",
+            "request": "launch",
+            "mainClass": "TesterPalavra",
+            "projectName": "Joguinho"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TesterTracinhos",
+            "request": "launch",
+            "mainClass": "TesterTracinhos",
+            "projectName": "Joguinho"
+        }
+    ]
+}
